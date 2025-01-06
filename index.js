@@ -3,13 +3,24 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv'
 import router from './routes/userRoute.js'
+import cors from 'cors'
+import jwt from 'jsonwebtoken'
 
-const app = express();
+// const app = express(); 
+// const user = [
+//     {
+//         name : "ram",
+//         email : "rampradop@gmail.com"
+//     },
+//     {
+//         name: "ramya",
+//         email : "ramya@gmail.com"
+//     }
+// ]
 
 //middleware for passing the json request to body
 app.use(bodyParser.json()); //Always return json based values
-
-app.use(express.urlencoded({ extended: true }));
+app.use(cors()) 
 dotenv.config()
 
 
@@ -18,6 +29,14 @@ const MONGOURL = process.env.MONGODB_URL;
 
 app.use('/api/user',router)
 
+// app.use('/', (req,res) => {
+//     const username = req.body.username;
+//     const user = {name : username};
+//     const accessToken = jwt.sign(user,'gfgfgfgfgfggfgf');
+
+//     res.json({accessToken : accessToken})
+// })
+
 mongoose
     .connect(MONGOURL)
     .then(() => {
@@ -25,6 +44,6 @@ mongoose
     app.listen(PORT, () => {
         console.log(`Port running Successfully at port: ${PORT}`)
     });
-})
+}) 
 
 
