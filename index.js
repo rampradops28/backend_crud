@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv'
 import router from './routes/userRoute.js'
-import cors from 'cors'
+import cors from 'cors';
 import jwt from 'jsonwebtoken'
 
 // const app = express(); 
@@ -20,8 +20,8 @@ import jwt from 'jsonwebtoken'
 
 //middleware for passing the json request to body
 app.use(bodyParser.json()); //Always return json based values
-app.use(cors()) 
-dotenv.config()
+app.use(cors()) ;
+dotenv.config();
 
 
 const PORT = process.env.PORT || 5000;
