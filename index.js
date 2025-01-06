@@ -6,7 +6,7 @@ import router from './routes/userRoute.js'
 import cors from 'cors';
 import jwt from 'jsonwebtoken'
 
-// const app = express(); 
+const app = express(); 
 // const user = [
 //     {
 //         name : "ram",
